@@ -11,3 +11,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"
+
+alias emacs="emacs -nw"
+prompt minimal
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# history substring search https://github.com/zsh-users/zsh-history-substring-search
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

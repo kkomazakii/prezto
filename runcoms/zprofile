@@ -17,8 +17,8 @@ fi
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='emacs'
+export VISUAL='emacs'
 export PAGER='less'
 
 #
@@ -61,3 +61,25 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
+
+setopt nolistbeep
+
+bindkey "^[[A" history-beginning-search-backward
+bindkey "^[[B" history-beginning-search-forward
+
+ZSH_THEME=minimal
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# added by Anaconda2 4.4.0 installer
+export PATH="/Users/kkomazaki/anaconda2/bin:/Users/kkomazaki/bin:$PATH"
+
+function dict {
+    open dict://$1
+}
+
+alias git=hub
+export PATH="$HOME/.cargo/bin:$PATH"
+export GPG_TTY=$(tty)
+
+alias lh="ll -h"
